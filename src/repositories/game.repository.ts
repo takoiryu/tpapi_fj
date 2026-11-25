@@ -74,7 +74,7 @@ export class GameRepository {
     const stmt = db.prepare(
       `UPDATE tank
        SET title = @title,
-           editor = @manufacturer,
+           manufacturer = @manufacturer,
            release_year = @releaseYear,
            type = @type,
            ratio = @ratio
