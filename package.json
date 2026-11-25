@@ -1,0 +1,41 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  }
+  "name": "tpapi_fj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takoiryu/tpapi_fj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/takoiryu/tpapi_fj/issues"
+  },
+  "homepage": "https://github.com/takoiryu/tpapi_fj#readme",
+  "dependencies": {
+    "better-sqlite3": "^13.2.0",
+    "express": "^5.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.10",
+    "@types/swagger-ui-express": "^4.1.8",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
