@@ -1,7 +1,6 @@
+// src/routes/game.routes.ts
 import { Router } from 'express';
-import { gameController } from '../controllers/game.controller.js';
+import { gameController as c } from '../controllers/game.controller.js';
 
 export const gameRoutes = Router();
-
-gameRoutes.get('/', gameController.getAll);
-gameRoutes.get('/:id', gameController.getById);
+gameRoutes.get('/', c.getAll).get('/:id', c.getById).post('/', c.create).put('/:id', c.update).delete('/:id', c.delete);

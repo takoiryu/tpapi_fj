@@ -36,9 +36,9 @@ export class GameRepository {
     return row ? mapRowToGame(row) : undefined;
   }
 
-  create(input: CreateGameInput): Game {
+create(input: CreateGameInput): Game {
     const stmt = db.prepare(
-      `INSERT INTO tank (title, manufacturer, release_year, type, ratio)
+      `INSERT INTO tank (title, editor, release_year, type, ratio)
        VALUES (@title, @manufacturer, @releaseYear, @type, @ratio)`
     );
 
@@ -52,8 +52,9 @@ export class GameRepository {
 
     const created = this.findById(Number(result.lastInsertRowid));
     if (!created) {
-      throw new Error('Impossible de récupérer l’enregistrement nouvellement créé.');
+      throw new Error("Impossible de récupérer l'enregistrement nouvellement créé.");
     }
+
     return created;
   }
 
