@@ -1,5 +1,5 @@
-import { db } from '../database/database';
-import { CreateGameInput, Game } from '../models/game.model';
+import { db } from '../database/database.js';
+import { CreateGameInput, Game } from '../models/game.model.js';
 
 interface TankRow {
   id: number;
@@ -23,14 +23,14 @@ function mapRowToGame(row: TankRow): Game {
 
 export class GameRepository {
   findAll(): Game[] {
-    const stmt = db.prepare('SELECT id, title, editor, release_year, type, ratio FROM tank');
+    const stmt = db.prepare('SELECT id, title, manufacturer, release_year, type, ratio FROM tank');
     const rows = stmt.all() as TankRow[];
     return rows.map(mapRowToGame);
   }
 
   findById(id: number): Game | undefined {
     const stmt = db.prepare(
-      'SELECT id, title, editor, release_year, type, ratio FROM tank WHERE id = ?'
+      'SELECT id, title, manufacturer, release_year, type, ratio FROM tank WHERE id = ?'
     );
     const row = stmt.get(id) as TankRow | undefined;
     return row ? mapRowToGame(row) : undefined;
@@ -38,7 +38,7 @@ export class GameRepository {
 
   create(input: CreateGameInput): Game {
     const stmt = db.prepare(
-      `INSERT INTO tank (title, editor, release_year, type, ratio)
+      `INSERT INTO tank (title, manufacturer, release_year, type, ratio)
        VALUES (@title, @manufacturer, @releaseYear, @type, @ratio)`
     );
 

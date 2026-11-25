@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3';
 import path from 'path';
-export const projectRoot = path.resolve(__dirname, '../..');
+
+export const projectRoot = process.cwd();
 
 const dbPath = path.join(projectRoot, 'src/database/game.db');
 
